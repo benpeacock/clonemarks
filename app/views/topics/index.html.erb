@@ -1,2 +1,17 @@
-<h1>Topics#index</h1>
-<p>Find me in app/views/topics/index.html.erb</p>
+<div class="row">
+	<div class="span12 text-center">
+		<h1>All Clonemarks</h1>
+	</div>
+</div>
+<% @topics.each do |topic| %>
+	<div class="row">
+	<%= link_to topic.name, topic %>
+		<div class="row"
+		<% topic.bookmarks.each do |bookmark| %>
+			<div class="span2">
+			<%= link_to bookmark.name, bookmark %>
+			</div>
+		<% end %>
+		<div>
+	</div>
+<% end %>

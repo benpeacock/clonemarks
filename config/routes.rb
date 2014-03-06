@@ -1,13 +1,15 @@
 Clonemarks::Application.routes.draw do
 
-	devise_for :users
+  devise_for :users
 
-	resources :topics
+  resources :topics
 
   resources :bookmarks
 
-  get "welcome/index"
+  get "topics/index"
 
-  root :to => 'welcome#index'
+  post '/emails' => 'emails#create'
+
+  root :to => 'topics#index'
 
 end
