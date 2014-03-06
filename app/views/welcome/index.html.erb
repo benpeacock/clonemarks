@@ -3,4 +3,7 @@
 		<h1>All Clonemarks</h1>
 	</div>
 </div>
+<% @topics.each do |topic| %>
+	<%= link_to topic.name, topic %>
+<% end %>
 <% # create a loop to get a few topics (maybe randomly?) an display them in alphabetical order.  For each topic, list four bookmarks (maybe randomly?). %>
