@@ -12,7 +12,7 @@ class BookmarksController < ApplicationController
 			flash[:notice] = "Bookmark saved"
 			redirect_to @bookmark
 		else
-			flash[:error] => "Bookmark not saved"
+			flash[:error] = "Bookmark not saved"
 			# Redirect?  If so, to where?
 		end
 	end
