@@ -14,6 +14,7 @@ class BookmarksController < ApplicationController
 		else
 			flash[:error] => "Bookmark not saved"
 			# Redirect?  If so, to where?
+		end
 	end
 
 	def destroy

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140225225503) do
+ActiveRecord::Schema.define(:version => 20140306233118) do
 
   create_table "bookmarks", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,11 @@ ActiveRecord::Schema.define(:version => 20140225225503) do
 
   add_index "bookmarks", ["topic_id"], :name => "index_bookmarks_on_topic_id"
   add_index "bookmarks", ["user_id"], :name => "index_bookmarks_on_user_id"
+
+  create_table "email_receivers", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "likes", :force => true do |t|
     t.integer  "bookmark_id"
