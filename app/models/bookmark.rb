@@ -6,5 +6,9 @@ class Bookmark < ActiveRecord::Base
 
   def self.new_from_email(mail)
   	puts "Next step is figuring out how to parse emails"
+  	bookmark = Bookmark.new
+  	Rails.logger.info ">>>> #{mail}.inspect"
+  	bookmark(params[:title]) = "test title"
+  	bookmark(params[:url]) = "test url"
   end
 end

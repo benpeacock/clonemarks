@@ -3,6 +3,6 @@ class EmailReceiver < Incoming::Strategies::Mailgun
 
   def receive(mail)
     bookmark = Bookmark.new_from_email(mail)
-    #bookmark.save
+    bookmark.save
   end
 end
