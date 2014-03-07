@@ -5,10 +5,10 @@ class Bookmark < ActiveRecord::Base
   attr_accessible :name, :url
 
   def self.new_from_email(mail)
-  	puts "Next step is figuring out how to parse emails"
   	bookmark = Bookmark.new
   	Rails.logger.info ">>>> #{mail}.inspect"
   	bookmark[:title] = "test title"
   	bookmark[:url] = "test url"
+  	bookmark.save
   end
 end
