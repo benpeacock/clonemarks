@@ -8,7 +8,7 @@ class Bookmark < ActiveRecord::Base
   	bookmark = Bookmark.new
   	Rails.logger.info ">>>> #{mail}.inspect"
   	# bookmark[:name] = "test name"
-  	bookmark[:name] = mail.stripped-text
+  	bookmark[:name] = mail.subject
   	bookmark[:url] = "test url"
   	bookmark
   end
