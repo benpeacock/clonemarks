@@ -7,8 +7,9 @@ class Bookmark < ActiveRecord::Base
   def self.new_from_email(mail)
   	bookmark = Bookmark.new
   	Rails.logger.info ">>>> #{mail}.inspect"
-  	bookmark[:title] = "test title"
-  	bookmark[:url] = "test url"
+  	bookmark = {:name => "test name", :url => "www.test.com"}
+  	#bookmark[:name] = "test name"
+  	#bookmark[:url] = "test url"
   	bookmark
   end
 end
