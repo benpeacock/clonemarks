@@ -1,5 +1,7 @@
 Clonemarks::Application.routes.draw do
 
+  get "emails/create"
+
   devise_for :users
 
   resources :topics
