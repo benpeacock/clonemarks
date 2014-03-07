@@ -9,6 +9,6 @@ class Bookmark < ActiveRecord::Base
   	Rails.logger.info ">>>> #{mail}.inspect"
   	bookmark[:title] = "test title"
   	bookmark[:url] = "test url"
-  	bookmark.save
+  	bookmark
   end
 end
