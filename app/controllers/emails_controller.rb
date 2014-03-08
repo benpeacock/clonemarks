@@ -3,7 +3,7 @@ class EmailsController < ApplicationController
   	if EmailReceiver.receive(request)
       render :json => { :status => 'ok' }
     else
-      render :json => { :status => 'rejected' }, :status => 403
+      render :json => { :status => 'rejected' }, :status => 406
     end
   end
 end

@@ -7,7 +7,11 @@ class Bookmark < ActiveRecord::Base
   def self.new_from_email(mail)
   	bookmark = Bookmark.new
   	Rails.logger.info ">>>> #{mail}.inspect"
-  	bookmark[:name] = mail.subject.gsub(/\W+/, “”)
+  	topic = mail.subject
+  	# look up the topic in the db
+  	# get the id of the topic
+  	# save the bookmark using topic id
+  	# bookmark[:topic] = topic
   	bookmark[:url] = mail.body.decoded
   	bookmark
   end
