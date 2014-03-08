@@ -12,7 +12,12 @@
 			<div class="span12 down40">
 				<% topic.bookmarks.each do |bookmark| %>
 					<div class="span2">
-						<%= link_to bookmark.url, bookmark %>
+						<div class="text-center">
+							<%= link_to bookmark.url, "http://#{bookmark.url}" %>
+						</div>
+						<div class="text-center">
+							<a href="#">Like</a>
+						</div>
 					</div>
 				<% end %>
 			</div>

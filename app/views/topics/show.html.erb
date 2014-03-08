@@ -1,2 +1,20 @@
-<h1>Topics#show</h1>
-<p>Find me in app/views/topics/show.html.erb</p>
+<div class="row">
+	<div class="span12 text-center">
+		<h1><%= @topic.name %></h1>
+	</div>
+</div>
+<div class="row">
+	<div class="span12">
+		<% @topic.bookmarks.each do |bookmark| %>
+			<div class="span3 down40">
+				<div class="text-center">
+					<%= link_to bookmark.url, "http://#{bookmark.url}" %>
+				</div>
+				<div class="text-center">
+					<a href="#">Like</a>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
+
