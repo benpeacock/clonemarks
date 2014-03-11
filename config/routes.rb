@@ -6,7 +6,9 @@ Clonemarks::Application.routes.draw do
 
   resources :topics
 
-  resources :bookmarks
+  resources :bookmarks do
+  	resources :likes
+  end
 
   get "welcome/index"
 

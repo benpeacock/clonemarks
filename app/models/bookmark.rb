@@ -1,7 +1,8 @@
 class Bookmark < ActiveRecord::Base
   belongs_to :topic
   belongs_to :user
-  has_many :likes
+  
+  has_many :likes, dependent: :destroy
   attr_accessible :name, :url, :user, :topic
 
   scope :desc, order("bookmarks.updated_at DESC")
