@@ -4,6 +4,8 @@ class Bookmark < ActiveRecord::Base
   has_many :likes
   attr_accessible :name, :url
 
+  scope :desc, order("bookmarks.updated_at DESC")
+
   def self.new_from_email(mail)
   	bookmark = Bookmark.new
   	Rails.logger.info ">>>> #{mail}.inspect"

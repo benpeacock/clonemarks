@@ -6,7 +6,7 @@ class TopicsController < ApplicationController
   end
 
   def index
-    @topics = Topic.all
+    @topics = Topic.all(:order => "updated_at DESC")
   end
 
   def show
