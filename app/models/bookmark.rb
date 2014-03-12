@@ -12,7 +12,7 @@ class Bookmark < ActiveRecord::Base
     # get the user from the e-mail address
     bookmark[:user] = User.find_by_email(mail.from)
     # strip the tag off the subject and set it as subject
-    bookmark[:topic] = topic.where(name: mail.subject.gsub(/#/, '')).first
+    bookmark[:topic] = Topic.where(name: mail.subject.gsub(/#/, '')).first
     bookmark[:topic] ||= Topic.create(name: mail.subject.gsub(/#/, ''))
 
     # strip the hash tag off.
