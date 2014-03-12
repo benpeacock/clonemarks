@@ -11,6 +11,8 @@ class Bookmark < ActiveRecord::Base
   	Rails.logger.info ">>>> #{mail}.inspect"
     # get the user from the e-mail address
     bookmark.user = User.find_by_email(mail.sender)
+    Rails.logger.info ">>>> Sender: #{mail.sender.inspect}"
+    Rails.logger.info ">>>> From: #{mail.from.inspect}"
     # strip the tag off the subject and set it as subject
     bookmark.topic = Topic.where(name: mail.subject.gsub(/#/, '')).first
     bookmark.topic ||= Topic.create(name: mail.subject.gsub(/#/, ''))
