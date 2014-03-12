@@ -4,6 +4,6 @@ class EmailReceiver < Incoming::Strategies::Mailgun
   def receive(mail)
     bookmark = Bookmark.new_from_email(mail)
     Rails.logger.info ">>> Bookmark is still: #{bookmark.inspect}"
-    bookmark.save
+    bookmark.save if bookmark
   end
 end
