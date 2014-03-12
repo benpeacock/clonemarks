@@ -10,7 +10,7 @@ class Bookmark < ActiveRecord::Base
   	bookmark = Bookmark.new
   	Rails.logger.info ">>>> #{mail}.inspect"
     # get the user from the e-mail address
-    bookmark.user = User.find_by_email(mail.sender)
+    bookmark.user = User.find_by_email(mail.from.first)
     Rails.logger.info ">>>> Sender: #{mail.sender.inspect}"
     Rails.logger.info ">>>> From: #{mail.from.inspect}"
     # strip the tag off the subject and set it as subject
