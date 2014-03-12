@@ -9,11 +9,11 @@ class Bookmark < ActiveRecord::Base
   def self.new_from_email(mail)
   	bookmark = Bookmark.new
   	Rails.logger.info ">>>> #{mail}.inspect"
-  	topic = mail.subject
+    # strip the hash tag off.
   	# look up the topic in the db
   	# get the id of the topic
   	# save the bookmark using topic id
-  	# bookmark[:topic] = topic
+  	# bookmark[:topic] = topic ##This just saves the topic, not the id ##
   	bookmark[:url] = mail.body.decoded
   	bookmark
   end
