@@ -8,11 +8,10 @@ class Bookmark < ActiveRecord::Base
 
   def self.new_from_email(mail)
   	bookmark = Bookmark.new
-  	Rails.logger.info ">>>> #{mail}.inspect"
-    # get the user from the e-mail address
+  	# get the user from the e-mail address
+    Rails.logger.info ">>> email address is: #{mail.from.first}"
     bookmark.user = User.find_by_email(mail.from.first)
-    Rails.logger.info ">>>> Sender: #{mail.sender.inspect}"
-    Rails.logger.info ">>>> From: #{mail.from.inspect}"
+    Rails.logger.info ">>>> Bookmark user: #{bookmark.user.inspect}"
     # strip the tag off the subject and set it as subject
     bookmark.topic = Topic.where(name: mail.subject.gsub(/#/, '')).first
     bookmark.topic ||= Topic.create(name: mail.subject.gsub(/#/, ''))
@@ -23,6 +22,7 @@ class Bookmark < ActiveRecord::Base
   	# save the bookmark using topic id
   	# bookmark[:topic] = topic ##This just saves the topic, not the id ##
   	bookmark.url = mail.body.decoded
+    Rails.logger.info ">>>> Bookmark: #{bookmark.inspect}"
   	bookmark
   end
 end
