@@ -7,15 +7,13 @@ class LikesController < ApplicationController
   end
 
   def create
-    @bookmark = @bookmark.find(params[:bookmark_id])
-    like = current_user.likes.create(bookmark: @bookmark)
-    if like.valid?
-      flash[:notice] = "Bookmark liked"
-      redirect_to [@topic]
+    @bookmark = Bookmark.find(params[:bookmark_id])
+    if current_user.likes.create(bookmark: @bookmark)
+      flash[:notice] = "Bookmark liked"      
     else
-      flash[:error] = "Unable to add like. Please try again."
-      redirect_to [@topic]
+      flash[:error] = "Unable to add like. Please try again."      
     end
+    redirect_to topics_path
   end
 
   def destroy
