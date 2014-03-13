@@ -8,6 +8,8 @@ Clonemarks::Application.routes.draw do
 
   resources :bookmarks
 
+  get "welcome/index"
+
   get "topics/index"
 
   post '/emails' => 'emails#create'

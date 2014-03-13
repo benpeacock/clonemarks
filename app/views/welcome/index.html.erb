@@ -1,0 +1,28 @@
+<div class="row">
+	<div class="span12 text-center">
+		<h1>My Clonemarks</h1>
+	</div>
+</div>
+<% @topics.each do |topic| %>
+	<div class="row">
+		<div class="span12">
+			<h3><%= link_to topic.name, topic %></h3>
+		</div>
+		<div class="row">
+			<div class="span12 down40">
+				<% topic.bookmarks.desc.each do |bookmark| %>
+					<div class="span2">
+						<div class="urlbox">
+							<div class="text-center">
+								<%= link_to bookmark.url, "http://#{bookmark.url}" %>
+							</div>
+						</div>
+						<div class="text-center">
+							<a href="#">Like</a>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+<% end %>
