@@ -4,25 +4,29 @@
 	</div>
 </div>
 <% @topics.each do |topic| %>
-	<div class="row">
-		<div class="span12">
-			<h3><%= link_to topic.name, topic %></h3>
-		</div>
+	<% bookmarks = topic.bookmarks.desc.select {|bookmark| bookmark.user == current_user } %>
+	<% # bookmarks = current_user.bookmarks.where(bookmark.topic == topic).only(:where) %>
+	<% if bookmarks.any? %>
 		<div class="row">
-			<div class="span12 down40">
-				<% current_user.bookmarks.desc.each do |bookmark| %>
-					<div class="span2">
-						<div class="urlbox">
+			<div class="span12">
+				<h3><%= link_to topic.name, topic %></h3>
+			</div>
+			<div class="row">
+				<div class="span12 down40">
+					<% bookmarks.each do |bookmark| %>
+						<div class="span2">
+							<div class="urlbox">
+								<div class="text-center">
+									<%= link_to bookmark.url, "http://#{bookmark.url}" %>
+								</div>
+							</div>
 							<div class="text-center">
-								<%= link_to bookmark.url, "http://#{bookmark.url}" %>
+								<a href="#">Like</a>
 							</div>
 						</div>
-						<div class="text-center">
-							<a href="#">Like</a>
-						</div>
-					</div>
-				<% end %>
+					<% end %>
+				</div>
 			</div>
 		</div>
-	</div>
+	<% end %>
 <% end %>
