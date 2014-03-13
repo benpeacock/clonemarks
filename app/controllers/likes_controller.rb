@@ -8,7 +8,6 @@ class LikesController < ApplicationController
 
   def create
     @bookmark = @bookmark.find(params[:bookmark_id])
-
     like = current_user.likes.create(bookmark: @bookmark)
     if like.valid?
       flash[:notice] = "Bookmark liked"

@@ -14,6 +14,8 @@ Clonemarks::Application.routes.draw do
 
   get "topics/index"
 
+  get "likes/new"
+
   post '/emails' => 'emails#create'
 
   root :to => 'topics#index'
