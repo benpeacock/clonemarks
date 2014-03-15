@@ -5,7 +5,6 @@
 </div>
 <% @topics.each do |topic| %>
 	<% bookmarks = topic.bookmarks.desc.select {|bookmark| bookmark.user == current_user } %>
-	<% # bookmarks = current_user.bookmarks.where(bookmark.topic == topic).only(:where) %>
 	<% if bookmarks.any? %>
 		<div class="row">
 			<div class="span12">
@@ -21,7 +20,7 @@
 								</div>
 							</div>
 							<div class="text-center">
-								<a href="#">Like</a>
+								<%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
 							</div>
 						</div>
 					<% end %>
