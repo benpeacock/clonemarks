@@ -48,7 +48,7 @@
 							</div>
 						</div>
 						<div class="text-center">
-							<%= link_to 'Unlike' %>
+							<%= render partial: 'likes/like', locals: { bookmark: like.bookmark } %>
 						</div>
 					</div>
 				<% end %>

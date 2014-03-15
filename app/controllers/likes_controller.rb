@@ -13,7 +13,7 @@ class LikesController < ApplicationController
     else
       flash[:error] = "Unable to add like. Please try again."      
     end
-    redirect_to topics_path
+    redirect_to welcome_index_path
   end
 
   def destroy
@@ -21,10 +21,10 @@ class LikesController < ApplicationController
 
     if @like.destroy
       flash[:notice] = "Removed like."
-      redirect_to [@topic]
+      redirect_to welcome_index_path
     else
       flash[:error] = "Unable to remove like."
-      redirect_to [@topic]
+      redirect_to welcome_index_path
     end
   end
 

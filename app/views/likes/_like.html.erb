@@ -1,9 +1,11 @@
 <div>
 	<% if current_user %>
-	<% if like = current_user.liked(bookmark) %>
-		<p>Unlike</p>
-	<% else %>
-  	<%= link_to "Like", bookmark_likes_path(bookmark), method: :post %>
-  <% end %>
+		<% if like = current_user.liked(bookmark) %>
+			<%= link_to [bookmark, like], method: :delete do %>
+				<p>Unlike</p>
+			<% end %>
+		<% else %>
+	  	<%= link_to "Like", bookmark_likes_path(bookmark), method: :post %>
+	  <% end %>
   <% end %>
 </div>
