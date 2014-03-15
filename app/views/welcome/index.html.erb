@@ -29,3 +29,27 @@
 		</div>
 	<% end %>
 <% end %>
+<div class="row">
+	<div class="span12 text-center">
+		<h1>Liked Clonemarks</h1>
+	</div>
+</div>
+<% @topics.each do |topic| %>
+	<% likes = current_user.likes.select { |like| like.bookmark.topic == topic } %>
+	<% if likes.any? %>
+		<div class="row">
+			<div class="span12">
+				<h3><%= link_to topic.name, topic %></h3>
+				<% likes.each do |like| %>
+					<div class="span2">
+						<div class="urlbox">
+							<div class="text-center">
+								<%= link_to like.bookmark.url, "http://#{like.bookmark.url}" %>
+							</div>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+<% end %>
