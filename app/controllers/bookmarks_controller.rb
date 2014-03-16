@@ -18,6 +18,12 @@ class BookmarksController < ApplicationController
 	end
 
 	def destroy
+		if @bookmark.destroy
+      flash[:notice] = "Bookmark was removed."
+      redirect_to welcome_index_path
+    else
+      flash[:error] = "Bookmark couldn't be deleted. Try again."
+    end
 	end
 
 	def show

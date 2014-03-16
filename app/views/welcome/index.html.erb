@@ -20,7 +20,9 @@
 								</div>
 							</div>
 							<div class="text-center">
-								<%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+								<%= link_to [bookmark], method: :delete do %>
+									<p>Remove</p>
+								<% end %>
 							</div>
 						</div>
 					<% end %>
